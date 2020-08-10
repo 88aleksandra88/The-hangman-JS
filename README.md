@@ -1,6 +1,6 @@
 # Hangman
 
-<img ssrc ="https://thumbs.gfycat.com/SaneHeavyIrishwolfhound-small.gif">
+<img src ="https://thumbs.gfycat.com/SaneHeavyIrishwolfhound-small.gif">
 
 - Type of challenge: consolidation
 - Repository: Hangman
@@ -24,7 +24,7 @@ Make a website version of the hangman word game. To do so try to think the struc
 - Optionally it can:
 
 - keep in memory all guessed letters
--only let the player guess a letter once
+- only let the player guess a letter once
 
 ## Bonus:
 
