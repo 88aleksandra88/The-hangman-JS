@@ -1,11 +1,177 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Hangman en Javascript</title>
+<meta name="description" content="Le jeu du pendu pour le Web programmé en langage Javascript" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="content-language" content="fr" />
+<link href='assets/css/style.css' rel='stylesheet' type='text/css' />
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<script language="Javascript" src="assets/js/main.js"></script>
 </head>
-<body>
-    
+<body onkeydown="clavier(event)">
+
+	<div class="div_conteneur_parent">
+	<div id="infos" class="texte_div"></div>
+		<div class="div_conteneur_page">
+			<a href="http://www.bonbache.fr/" target="_self">
+			<img src="assets/img/images/scary_face_by_charadreemurr666_da5sqhe-fullview.jpg" style="width:120px;border:none;" align="left" alt="visage" />
+			</a>		
+			<div class="titre_page"><h1>Jeu du pendu</h1></div>
+			
+			<div class="div_int_page">
+			
+			<div style="width:100%;display:block;text-align:center;">
+			</div>
+			
+			<div class="div_saut_ligne" style="height:30px;">
+			</div>						
+			
+			<div style="float:left;width:10%;height:40px;"></div>
+			<div style="float:left;width:80%;height:40px;text-align:center;">
+			<div style="width:auto;display:block;height:auto;text-align:center;background-color:rgba(0,0,0,0.7);
+			;border:black 1px solid;padding-top:12px;box-shadow: 6px 6px 0px #440404;color:black;">
+			<h1>Tu t'es égaré dans les bois? Trouve les mots si tu veut t'en sortir vivant...</h1>
+			</div>
+			</div>
+					
+			<div style="float:left;width:10%;height:40px;"></div>
+			
+			<div class="div_saut_ligne">
+			</div>		
+			
+			<div style="width:100%;height:auto;text-align:center;">
+						
+			<div style="width:800px;display:inline-block;" id="conteneur">
+			
+				<div class="centre">
+					<div class="titre_centre" id="titre">
+						Tapez les lettres au clavier (Sans accent) pour dévoiler le mot de l'indication				
+					</div>	
+				</div>		
+			
+				<div class="colonne" id="colonne_gauche">
+					<div class="astuce" id="indication">
+					Indication :<br /><strong>Indice pour le mot à trouver</strong>
+					</div>
+					<div class="astuce" id="leMot" style="font-size:20px;letter-spacing:2px;">
+					Mot à trouver
+					</div>
+					<div class="astuce" id="leScore">
+					Votre score : <strong>10 / 10</strong> - Mots restants : <strong>10</strong>
+					</div>
+					<input type="button" value="Débuter" onClick="debuter()"/>
+				</div>
+				<div class="colonne" id="colonne_droite" style="text-align:center;">
+				<img src="assets/img/images/img_pendu/pendu_defaut.png" alt="" id="lePendu" style="height:220px;" />
+				</div>
+				
+				<div class="centre" id="le_clavier">
+					<div class="titre_centre" id="apercu" style="height:140px;padding-left:74px;width:650px;">
+					<div class="lettre" id="calque_a">A</div><div class="lettre" id="calque_b">B</div>
+					<div class="lettre" id="calque_c">C</div><div class="lettre" id="calque_d">D</div>
+					<div class="lettre" id="calque_e">E</div><div class="lettre" id="calque_f">F</div>
+					<div class="lettre" id="calque_g">G</div><div class="lettre" id="calque_h">H</div>
+					<div class="lettre" id="calque_i">I</div><div class="lettre" id="calque_j">J</div>
+					<div class="lettre" id="calque_k">K</div><div class="lettre" id="calque_l">L</div>
+					<div class="lettre" id="calque_m">M</div>
+					<div class="div_saut_ligne" style="height:50px;" id="saut1">
+					<div class="lettre" id="calque_n">N</div>
+					<div class="lettre" id="calque_o">O</div><div class="lettre" id="calque_p">P</div>
+					<div class="lettre" id="calque_q">Q</div><div class="lettre" id="calque_r">R</div>
+					<div class="lettre" id="calque_s">S</div><div class="lettre" id="calque_t">T</div>
+					<div class="lettre" id="calque_u">U</div><div class="lettre" id="calque_v">V</div>
+					<div class="lettre" id="calque_w">W</div><div class="lettre" id="calque_x">X</div>
+					<div class="lettre" id="calque_y">Y</div>
+					<div class="lettre" id="calque_z">Z</div>
+					<div class="div_saut_ligne" style="height:50px;" id="saut2">
+					<div class="lettre" id="calque_0">0</div>
+					<div class="lettre" id="calque_1">1</div><div class="lettre" id="calque_2">2</div>
+					<div class="lettre" id="calque_3">3</div><div class="lettre" id="calque_4">4</div>
+					<div class="lettre" id="calque_5">5</div><div class="lettre" id="calque_6">6</div>
+					<div class="lettre" id="calque_7">7</div><div class="lettre" id="calque_8">8</div>
+					<div class="lettre" id="calque_9">9</div>
+					</div>	
+				</div>					
+				
+			</div>
+			
+			</div>
+
+			<div class="div_saut_ligne" style="height:50px;">
+			</div>	
+			
+			</div>
+		</div>
+	
+	</div>
+	
 </body>
+<script type="text/javascript" language="javascript">
+let fin = true;
+let nb_erreurs = 0;
+let nb_passe = 0;
+let tab_mots;
+let nb_mots = 0;
+let chaine_rangee = "";
+let le_mot = ""; var lindication = "";
+let mem_mot = "";
+let le_scrore = 10;
+let lettres_ok ="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+let la_touche ="";
+
+recuperer();
+
+function recuperer()
+{
+	tab_mots = mots_a_trouver().split('*');
+	nb_mots = tab_mots.length;
+	//alert(nb_mots);
+	//alert(tab_mots[0]);
+
+
+}
+
+function debuter()
+{
+	fin = false;
+
+}
+
+function init_calques()
+{
+
+}
+
+function suivant()
+{
+
+}
+	
+function clavier(evenement)
+{ 
+	let indice = 0; 
+	let la_lettre = "";
+	let trouve = false;
+
+	if(fin==true)
+		return;
+
+	let touche = window.event ? evenement.keyCode : evenement.which;
+	touche = String.fromCharCode(touche).substr(0,1);
+	//alert(touche);
+
+	if(touche == " "){
+		la_touche = " ";
+		return;
+	}
+	if(lettres_ok.indexOf(touche)==-1)
+		return;
+
+	document.getElementById("calque_" + touche.toLowerCase()).style.backgroundColor="#2c1c1c";
+
+}	
+</script>
 </html>
+	
