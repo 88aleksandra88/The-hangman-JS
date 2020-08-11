@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/img/images/scary_face_by_charadreemurr666_da5sqhe-fullview.jpg">
-<script language="Javascript" src="assets/js/main.js"></script>
 </head>
 <body onkeydown="clavier(event)">
 
@@ -107,80 +106,14 @@
 		</div>
 	
 	</div>
-	<audio controls autoplay preload="metadata" > <!--hidden--> 
+	<audio controls preload="metadata" > <!--hidden autoplay--> 
 	<source src="assets/sons/TORMENTED - Epic Intense Hybrid Horror Music Mix Epic Modern Horror Sound Design.mp3" type="audio/mpeg" frameborder="0">
 		Your browser does not support the audio tag.
 	</audio>
+	<script language="Javascript" src="assets/js/main.js"></script>
+
 	
 </body>
-<script type="text/javascript" language="javascript">
-let fin = true;
-let nb_erreurs = 0;
-let nb_passe = 0;
-let tab_mots;
-let nb_mots = 0;
-let chaine_rangee = "";
-let le_mot = ""; var lindication = "";
-let mem_mot = "";
-let le_scrore = 10;
-let lettres_ok ="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-let la_touche ="";
 
-recuperer();
-
-function recuperer()
-{
-	tab_mots = mots_a_trouver().split('*');
-	nb_mots = tab_mots.length;
-	//alert(nb_mots);
-	//alert(tab_mots[0]);
-
-
-}
-
-function debuter()
-{
-	if(la_touche==" ")
-	return;
-
-	fin = false; nb_coups = 0; chaine_rangee = " ";
-	 nb_passe = 0; nb_erreurs = 0; le_scrore = 10;
-
-}
-
-function init_calques()
-{
-
-}
-
-function suivant()
-{
-
-}
-	
-function clavier(evenement)
-{ 
-	let indice = 0; 
-	let la_lettre = "";
-	let trouve = false;
-
-	if(fin==true)
-		return;
-
-	let touche = window.event ? evenement.keyCode : evenement.which;
-	touche = String.fromCharCode(touche).substr(0,1);
-	//alert(touche);
-
-	if(touche == " "){
-		la_touche = " ";
-		return;
-	}
-	if(lettres_ok.indexOf(touche)==-1)
-		return;
-
-	document.getElementById("calque_" + touche.toLowerCase()).style.backgroundColor="#2c1c1c";
-
-}	
-</script>
 </html>
 	
