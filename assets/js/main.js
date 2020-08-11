@@ -43,26 +43,6 @@ function init_calques()
 
 function suivant()
 {
-	let tab_enigme;
-	let nb_alea = Math.floor(Math.random()*nb_mots);
-	//alert(nb_alea);
-
-	le_scrore = le_scrore - nb_erreurs/4;
-	 
-	 document.getElementById("leScore").innerHTML = "Votre score : <strong>" + le_scrore + " 10</strong> - Mots restants : <strong>" + (10 - nb_passe) + "</strong";
-	 document.getElementById("lePendu").src = "assets/img/images/img_pendu/pendu_defaut.png";
-
-	 nb_erreurs = 0;
-	 init_calques();
-
-	 while(chaine_rangee.indexOf("-" + nb_alea + "-")>-1){
-		let nb_alea = Math.floor(Math.random()*nb_mots);
- 
-	 }
-
-	 chaine_rangee +- "-" + nb_alea + "-";
-	 tab_enigme = tab_mots[nb_alea].split("-");
-
 
 }
 	
