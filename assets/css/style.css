@@ -224,3 +224,12 @@ a:active {
 	color:#666666;
 	text-align:left;
 }
+
+audio{
+	width: 200px;
+	height: 30px;
+	position: fixed;
+	
+	
+	
+}
