@@ -121,7 +121,7 @@ if(le_mot == mem_mot)
 nb_passe++;
 if(nb_passe==10)
 {
-document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + (le_score-nb_erreurs/4) + ' / 10</strong> - Mots restants : <strong>' + (10 - nb_passe) + '</strong>- <strong>Victoire !</strong>';
+document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + (le_score-nb_erreurs/4) + ' / 10</strong> - Mots restants : <strong>' + (10 - nb_passe) + '</strong>- <strong>Tu as gagné! Je te laissé partir..pour cette fois.. !</strong>';
 fin = true;
 }
 else
