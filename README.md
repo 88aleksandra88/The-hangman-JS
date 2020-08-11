@@ -10,7 +10,7 @@
 
 # Project:
 
-Follow the link :point_right: .... https://88aleksandra88.github.io/The-hangman-JS/
+Follow the link :point_right: .... https://88aleksandra88.github.io/The-hangman-JS/.
 
 ## Mission
 
