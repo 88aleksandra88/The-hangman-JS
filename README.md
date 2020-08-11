@@ -7,7 +7,10 @@
 - Challenge: solo
 - Duration : 3 days
 - Deadline : 12/08/2020, 10:00 am
-- Clic https://88aleksandra88.github.io/The-hangman-JS/
+
+# Project:
+
+Follow the link :point_right: .... https://88aleksandra88.github.io/The-hangman-JS/
 
 ## Mission
 
