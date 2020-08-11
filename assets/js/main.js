@@ -31,8 +31,10 @@ function debuter()
 	if(la_touche==" ")
 	return;
 
-	fin = false; nb_coups = 0; chaine_rangee = " ";
+	fin = false; nb_coups = 0; chaine_rangee = '';
 	 nb_passe = 0; nb_erreurs = 0; le_scrore = 10;
+
+	 suivant();
 
 }
 
@@ -43,6 +45,38 @@ function init_calques()
 
 function suivant()
 {
+let tab_enigme;
+let nb_alea = Math.floor(Math.random() * nb_mots);
+//alert(nb_alea);
+
+le_score = le_score=nb_erreurs/4;
+document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + le_score + ' / 10</strong> - Mots restants :<strong>' + (10 - nb_passe) + '</strong>'
+document.getElementById('lePendu').src = 'assets/img/images/img_pendu/pendu_defaut.png';
+nb_erreurs=0;
+
+init_calques();
+let parent = document.getElementById('apercu');
+let enfants = parent.getElementsByTagName('div');
+for (var i = 0; i < enfants.length; i++)
+{
+if(enfants[i].id != 'saut1' && enfants[i].id !='saut2')
+enfants[i].style.backgroundColor = '#EDEEEE';
+}
+
+
+while(chaine_rangee.indexOf('-' + nb_alea + '-')>-1)
+{
+nb_alea = Math.floor(Math.random() * nb_mots);
+}
+
+chaine_rangee += '-' + nb_alea + '-';
+tab_enigme = tab_mots[nb_alea].split(':');
+le_mot = tab_enigme[0];
+lindication = tab_enigme[1];
+mem_mot = le_mot.toUpperCase();
+le_mot = le_mot.toUpperCase().replace(/[A-Z0-9]/g,'_');
+document.getElementById('indication').innerHTML = 'Indication :<br /><strong>' + lindication + '</strong>';
+document.getElementById('leMot').innerHTML = le_mot;
 
 }
 	
@@ -67,4 +101,48 @@ function clavier(evenement)
 		return;
 
 	document.getElementById("calque_" + touche.toLowerCase()).style.backgroundColor="#2c1c1c";
+
+	//traitement récursif
+
+	for(indice=0; indice<=mem_mot.length-1; indice++)
+{
+la_lettre = mem_mot.substr(indice,1);
+if(la_lettre==touche)
+{
+trouve = true;
+le_mot = le_mot.substr(0,indice) + la_lettre + le_mot.substr(indice + 1);
+document.getElementById('leMot').innerHTML = le_mot;
 }
+}
+if(trouve == true)
+{
+if(le_mot == mem_mot)
+{
+nb_passe++;
+if(nb_passe==10)
+{
+document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + (le_score-nb_erreurs/4) + ' / 10</strong> - Mots restants : <strong>' + (10 - nb_passe) + '</strong>- <strong>Victoire !</strong>';
+fin = true;
+}
+else
+{
+window.setTimeout(function attendre(){ suivant(); }, 1000);
+}
+}
+}
+else
+{
+nb_erreurs++;
+document.getElementById('lePendu').src = 'assets/img/images/img_pendu/pendu' + nb_erreurs + '.png';
+if(nb_erreurs==4)
+{
+nb_passe++;
+if(nb_passe==10)
+fin = true
+window.setTimeout(function attendre(){ suivant(); }, 1000);
+}
+}
+}
+
+
+
