@@ -10,7 +10,7 @@ let nb_mots = 0;
 let chaine_rangee = "";
 let le_mot = ""; var lindication = "";
 let mem_mot = "";
-let le_scrore = 10;
+let le_scrore = 5;
 let lettres_ok ="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 let la_touche ="";
 
@@ -32,7 +32,7 @@ function debuter()
 	return;
 
 	fin = false; nb_coups = 0; chaine_rangee = '';
-	 nb_passe = 0; nb_erreurs = 0; le_scrore = 10;
+	 nb_passe = 0; nb_erreurs = 0; le_scrore = 5;
 
 	 suivant();
 
@@ -50,7 +50,7 @@ let nb_alea = Math.floor(Math.random() * nb_mots);
 //alert(nb_alea);
 
 le_score = le_score=nb_erreurs/4;
-document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + le_score + ' / 10</strong> - Mots restants :<strong>' + (10 - nb_passe) + '</strong>'
+document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + le_score + ' / 5</strong> - Mots restants :<strong>' + (5 - nb_passe) + '</strong>'
 document.getElementById('lePendu').src = 'assets/img/images/pendu_defaut.png';
 nb_erreurs=0;
 
@@ -119,14 +119,15 @@ if(trouve == true)
 if(le_mot == mem_mot)
 {
 nb_passe++;
-if(nb_passe==10)
+if(nb_passe==5)
 {
-document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + (le_score-nb_erreurs/4) + ' / 10</strong> - Mots restants : <strong>' + (10 - nb_passe) + '</strong>- <strong>Tu as gagné! Je te laiss partir cette fois.. </strong>';
+document.getElementById('leScore').innerHTML = 'Votre score :<strong>' + (le_score-nb_erreurs/4) + ' / 10</strong> - Mots restants : <strong>' + (5 - nb_passe) + '</strong>- <strong>Tu as gagné! Je te laiss partir cette fois.. </strong>';
 fin = true;
 }
 else
 {
-window.setTimeout(function attendre(){ suivant(); }, 1000);
+	window.setTimeout(function attendre(){ suivant(); }, 1000);
+	//alert('Perdu! Essaye encore si tu veut retrouver ton chemin...');
 }
 }
 }
@@ -137,7 +138,7 @@ document.getElementById('lePendu').src = 'assets/img/images/pendu' + nb_erreurs 
 if(nb_erreurs==4)
 {
 nb_passe++;
-if(nb_passe==10)
+if(nb_passe==5)
 fin = true
 window.setTimeout(function attendre(){ suivant(); }, 1000);
 }
